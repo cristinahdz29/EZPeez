@@ -16,8 +16,11 @@
       <p>finding accessible restrooms near you</p>
     </div>
     <div id="searchDiv">
-      <input type="text" id="addressTextBox" value="6558 Roswell Rd Sandy Springs GA 30328"
-        placeholder="Enter address here" />
+      <input
+        type="text"
+        id="addressTextBox"
+        placeholder="Address"
+      />
       <button id="searchButton">Search</button>
       <div id="filters">
         <label for="wheelchair"><input class="wheelchair" type="checkbox" />Wheelchair accessible</label>
@@ -43,4 +46,13 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
 </body>
 
+
+    <script src="initMap.js"></script>
+    <script type="module" src="index.js"></script>
+
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"
+    ></script>
+  </body>
 </html>
