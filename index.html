@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EZPeeZ</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
 
-  <body>
-    <div id="content">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZPeeZ</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="content">
     <div id="heading">
-      <h1>EzPeeZ</h1>
-      <h3>Description</h3>
+      <h1>EZPeeZ</h1>
+      <p>finding accessible restrooms near you</p>
     </div>
     <div id="searchDiv">
       <input
@@ -20,27 +22,29 @@
         placeholder="Address"
       />
       <button id="searchButton">Search</button>
-      <label for="wheelchair"
-        ><input class="wheelchair" type="checkbox" />Wheelchair
-        accessible</label
-      >
-      <label for="changing station"
-        ><input class="changing station" type="checkbox" />Changing
-        station</label
-      >
-      <label for="Unisex"><input class="Unisex" type="checkbox" />Unisex</label>
+      <div id="filters">
+        <label for="wheelchair"><input class="wheelchair" type="checkbox" />Wheelchair accessible</label>
+        <label for="changing station"><input class="changing_station" type="checkbox" />Changing station</label>
+        <label for="Unisex"><input class="unisex" type="checkbox" />Unisex</label>
+      </div>
     </div>
 
     <div id="map"></div>
 
     <div id="restroomDiv">
-        <ul id="restroomUL">
+      <ul id="restroomUL">
 
-        </ul>
-
-    </div>
+      </ul>
 
     </div>
+
+  </div>
+
+  <script src="initMap.js"></script>
+  <script src="index.js"></script>
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
+</body>
 
 
     <script src="initMap.js"></script>
