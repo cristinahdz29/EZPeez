@@ -6,6 +6,8 @@ let addressTextBox = document.getElementById("addressTextBox");
 
 let searchButton = document.getElementById("searchButton");
 
+let restroomUL = document.getElementById("restroomUL");
+
 
 
 //Adding event listener to search button
@@ -88,6 +90,16 @@ searchButton.addEventListener("click", async function () {
     }
 
   renderMapAndMarkers(locationObj, restrooms);
+
+  function displayRestroomData() {
+      let restroomData = `
+      <label>Please Work</label>
+      `
+
+      restroomUL.innerHTML = restroomData
+  }
+
+  displayRestroomData()
 
   console.log(restrooms);
 });
