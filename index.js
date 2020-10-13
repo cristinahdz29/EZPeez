@@ -68,30 +68,7 @@ getLocation()
 
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
-    // function displayRestroomData() {
-    //     let lat = 20
-    //     let lng = 20
-    //     let restroomURL = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`
-    //     fetch(restroomURL)
-    //     .then((response) => {
-    //         return response.json()
-    //     }) .then((data) => {
-    //         display(data)
-    //     }) .catch((error) => {
-    //         console.log(error)
-    //     })
-  
-    //     function display(results) {
-    //         console.log(results)
-    //     }
-    //     let restroomData = `
-    //     <label>Please Work</label>
-    //     `
-  
-    //     restroomUL.innerHTML = restroomData
-    // }
-  
-    // displayRestroomData()
+    
 
     const locationObj = await getLatAndLogByAddress(addressTextBox.value);
     const restrooms = await getRestroomsByLatAndLog(
@@ -103,29 +80,7 @@ searchButton.addEventListener("click", async function () {
     );
     renderMapAndMarkers(locationObj, restrooms);
 
-    // add function that bring in info from API to UL - Dom
-    //   function displayRestroomData() {
-    //       let restroomURL = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`
-    //       fetch(restroomURL)
-    //       .then((response) => {
-    //           return response.json()
-    //       }) .then((data) => {
-    //           display(data)
-    //       }) .catch((error) => {
-    //           console.log(error)
-    //       })
-
-    //       function display(results) {
-    //           console.log(results)
-    //       }
-    //       let restroomData = `
-    //       <label>Please Work</label>
-    //       `
-
-    //       restroomUL.innerHTML = restroomData
-    //   }
-
-    //   displayRestroomData()
+    
     
     console.log(restrooms);
 
@@ -141,14 +96,5 @@ searchButton.addEventListener("click", async function () {
     })
     restroomUL.insertAdjacentHTML('beforeend', work.join(''))
 
-    // function tryAgain(restrooms) {
 
-       
-
-    //     let something = `
-    //     <label>${work[0]}</label>
-    //     `
-    //     restroomUL.innerHTML = something
-    // }
-    // tryAgain()
 });
