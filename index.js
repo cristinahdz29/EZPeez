@@ -86,18 +86,21 @@ searchButton.addEventListener("click", async function () {
     
     
     console.log(restrooms);
+    
 
-    let work = restrooms.map((restrooms) => {
+    let work = restrooms.map((restroom) => {
         return `
-        <li><h2><b>${restrooms.name}</b><h2><br>
+        <li><h2><b>${restroom.name}</b><h2><br>
             <ul>
-                <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li>
-                <li>${restrooms.comment}</li>
+                <li>${restroom.street} ${restroom.city}, ${restroom.state}</li>
+                <li>${restroom.comment}</li>
             </ul>
         </li>
         `
+        
     })
-    restroomUL.insertAdjacentHTML('beforeend', work.join(''))
+    restroomUL.innerHTML = work.join(" ")
+    // restroomUL.insertAdjacentHTML('beforeend', work.join(''))
 
 
 });
