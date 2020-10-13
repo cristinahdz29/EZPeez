@@ -3,9 +3,13 @@ let marker;
 
 let addressTextBox = document.getElementById("addressTextBox");
 let searchButton = document.getElementById("searchButton");
+<<<<<<< HEAD
 let wheelchair = document.getElementById("wheelchair");
 let changing_table = document.getElementById("changing_table");
 let unisex = document.getElementById("unisex");
+=======
+let restroomUL = document.getElementById("restroomUL")
+>>>>>>> main
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -26,50 +30,51 @@ function initMap() {
 }
 
 async function getLatAndLogByAddress(address) {
-  let formatedAddress = address.split(" ").join("+");
+    let formatedAddress = address.split(" ").join("+");
 
-  let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${formatedAddress}&key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4`;
+    let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${formatedAddress}&key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4`;
 
-  let response = await fetch(url);
-  let data = await response.json();
+    let response = await fetch(url);
+    let data = await response.json();
 
-  return data.results[0].geometry.location;
+    return data.results[0].geometry.location;
 }
 
 async function getRestroomsByLatAndLog(lat, lng) {
-  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`;
+    let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`;
 
-  let response = await fetch(url);
-  let data = await response.json();
+    let response = await fetch(url);
+    let data = await response.json();
 
-  return data;
+    return data;
 }
 
 function renderMapAndMarkers(center, markers) {
-  map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
-    center: new google.maps.LatLng(center.lat, center.lng),
-  });
-
-  marker = new google.maps.Marker({
-    position: new google.maps.LatLng(center.lat, center.lng),
-    icon:
-      "https://i.pinimg.com/originals/25/62/aa/2562aacd1a4c2af60cce9629b1e05cf2.png",
-    map: map,
-  });
-
-  markers.forEach((marker) => {
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(marker.latitude, marker.longitude),
-      map: map,
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: new google.maps.LatLng(center.lat, center.lng),
     });
-  });
+
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(center.lat, center.lng),
+        icon:
+            "https://i.pinimg.com/originals/25/62/aa/2562aacd1a4c2af60cce9629b1e05cf2.png",
+        map: map,
+    });
+
+    markers.forEach((marker) => {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(marker.latitude, marker.longitude),
+            map: map,
+        });
+    });
 }
 
 getLocation()
 
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
+<<<<<<< HEAD
     locationObj = await getLatAndLogByAddress(addressTextBox.value);
     restrooms = await getRestroomsByLatAndLog(
     locationObj.lat,
@@ -78,6 +83,37 @@ searchButton.addEventListener("click", async function () {
   renderMapAndMarkers(locationObj, restrooms);
 
   console.log(restrooms);
+=======
+    
+
+    const locationObj = await getLatAndLogByAddress(addressTextBox.value);
+    const restrooms = await getRestroomsByLatAndLog(
+        locationObj.lat,
+        locationObj.lng
+
+
+
+    );
+    renderMapAndMarkers(locationObj, restrooms);
+
+    
+    
+    console.log(restrooms);
+
+    let work = restrooms.map((restrooms) => {
+        return `
+        <li><h2><b>${restrooms.name}</b><h2><br>
+            <ul>
+                <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li>
+                <li>${restrooms.comment}</li>
+            </ul>
+        </li>
+        `
+    })
+    restroomUL.insertAdjacentHTML('beforeend', work.join(''))
+
+
+>>>>>>> main
 });
 
 wheelchair.addEventListener("click", async function() {
