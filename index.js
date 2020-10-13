@@ -73,8 +73,8 @@ getLocation()
 searchButton.addEventListener("click", async function () {
     
 
-    const locationObj = await getLatAndLogByAddress(addressTextBox.value);
-    const restrooms = await getRestroomsByLatAndLog(
+    locationObj = await getLatAndLogByAddress(addressTextBox.value);
+    restrooms = await getRestroomsByLatAndLog(
         locationObj.lat,
         locationObj.lng
 
