@@ -3,13 +3,10 @@ let marker;
 
 let addressTextBox = document.getElementById("addressTextBox");
 let searchButton = document.getElementById("searchButton");
-<<<<<<< HEAD
 let wheelchair = document.getElementById("wheelchair");
 let changing_table = document.getElementById("changing_table");
 let unisex = document.getElementById("unisex");
-=======
 let restroomUL = document.getElementById("restroomUL")
->>>>>>> main
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -74,16 +71,6 @@ getLocation()
 
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
-<<<<<<< HEAD
-    locationObj = await getLatAndLogByAddress(addressTextBox.value);
-    restrooms = await getRestroomsByLatAndLog(
-    locationObj.lat,
-    locationObj.lng
-  );
-  renderMapAndMarkers(locationObj, restrooms);
-
-  console.log(restrooms);
-=======
     
 
     const locationObj = await getLatAndLogByAddress(addressTextBox.value);
@@ -113,7 +100,6 @@ searchButton.addEventListener("click", async function () {
     restroomUL.insertAdjacentHTML('beforeend', work.join(''))
 
 
->>>>>>> main
 });
 
 wheelchair.addEventListener("click", async function() {
