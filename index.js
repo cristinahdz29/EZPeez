@@ -70,7 +70,7 @@ function renderMapAndMarkers(center, markers) {
 
   let icon = {
     url:
-      "https://spng.pngfind.com/pngs/s/671-6710560_blue-map-marker-png-transparent-png.png", //url
+      "https://i.pinimg.com/originals/a5/45/9c/a5459c891b38a381f434306920decc20.png", //url
     scaledSize: new google.maps.Size(50, 50), // scaled size
     origin: new google.maps.Point(0, 0), // origin
     anchor: new google.maps.Point(0, 0), // anchor
