@@ -89,6 +89,8 @@ searchButton.addEventListener("click", async function () {
         });
     }
 
+
+    // displaying all the information on the dispaly UL -Dom
   renderMapAndMarkers(locationObj, restrooms);
 
   function displayRestroomData() {
