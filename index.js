@@ -102,7 +102,7 @@ function renderMapAndMarkers(center, markers) {
             map: map,
         });
     });
-}
+  }
 
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
