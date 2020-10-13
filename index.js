@@ -4,6 +4,9 @@ let marker;
 //getting elements from HTML
 let addressTextBox = document.getElementById("addressTextBox");
 let searchButton = document.getElementById("searchButton");
+let wheelchair = document.getElementById("wheelchair");
+let changing_table = document.getElementById("changing_table");
+let unisex = document.getElementById("unisex");
 let restroomUL = document.getElementById("restroomUL")
 
 //function to get location for map to show on load
@@ -132,3 +135,42 @@ searchButton.addEventListener("click", async function () {
 
 
 });
+
+wheelchair.addEventListener("click", async function() {
+
+    if(this.checked) {
+        let response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`)
+        let json = await response.json()
+        let wheelchairItems = json.filter((restroom) => {
+            return restroom.accessible == true        
+})
+        console.log(wheelchairItems)
+
+}
+})
+
+changing_table.addEventListener("click", async function() {
+
+    if(this.checked) {
+        let response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`)
+        let json = await response.json()
+        let changing_tableItems = json.filter((restroom) => {
+            return restroom.changing_table == true        
+})
+        console.log(changing_tableItems)
+
+}
+})
+
+unisex.addEventListener("click", async function() {
+
+    if(this.checked) {
+        let response = await fetch(`https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`)
+        let json = await response.json()
+        let unisexItems = json.filter((restroom) => {
+            return restroom.unisex == true        
+})
+        console.log(unisexItems)
+
+}
+})
