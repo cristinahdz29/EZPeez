@@ -10,7 +10,7 @@ let unisex = document.getElementById("unisex");
 let restroomUL = document.getElementById("restroomUL");
 
 //function to get location for map to show on load
-function getLocation() {
+async function getLocation() {
   //if statement for when page loads, if user's device supports geolocation we will get their coordinates on load
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(async function (position) {
@@ -22,15 +22,31 @@ function getLocation() {
         lng: position.coords.longitude,
       };
 
+      restrooms = await getRestroomsByLatAndLog(center.lat, center.lng);
+      renderMapAndMarkers(center, restrooms);
+
+      console.log(restrooms);
+
+      let work = restrooms.map((restrooms) => {
+        return `
+        <li><h2><b>${restrooms.name}</b><h2><br>
+            <ul>
+                <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li>
+                <li>${restrooms.comment}</li>
+            </ul>
+        </li>
+        `;
+      });
+      restroomUL.insertAdjacentHTML("beforeend", work.join(""));
+
       // Used the center object we created above to pass it into the renderMapandMarkers function, which needs to have center as an argument (hence us making a center object, with the lat and lng keys that the renderMapandMarkers needs)
-      renderMapAndMarkers(center, []);
     });
   } else {
     console.log("Geolocation not supported by user device");
   }
 }
 //function to initialize map; have it show up on the screen on load
-function initMap() {
+async function initMap() {
   //
   // The location of Uluru
   var uluru = { lat: -25.344, lng: 131.036 };
@@ -41,7 +57,8 @@ function initMap() {
   });
   // The marker, positioned at Uluru
   marker = new google.maps.Marker({ position: uluru, map: map });
-  getLocation();
+
+  await getLocation();
 }
 
 //function to get lat and long coordinates by address
@@ -58,7 +75,7 @@ async function getLatAndLogByAddress(address) {
 
 //function get restrooms by lat and long coordinates using the restroom API
 async function getRestroomsByLatAndLog(lat, lng) {
-  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`;
+  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=15&lat=${lat}&lng=${lng}`;
 
   let response = await fetch(url);
   let data = await response.json();
@@ -87,9 +104,28 @@ function renderMapAndMarkers(center, markers) {
   });
 
   markers.forEach((marker) => {
-    new google.maps.Marker({
+    let mapMarker = new google.maps.Marker({
       position: new google.maps.LatLng(marker.latitude, marker.longitude),
       map: map,
+    });
+
+    let infowindow = new google.maps.InfoWindow();
+
+    mapMarker.addListener("mouseover", function () {
+      infowindow.open(map, mapMarker);
+      infowindow.setContent(
+        `<div class='infowindow-container'>
+          <div class='inner'>
+            <h4>${marker.name}</h4>
+            <p>Address: ${marker.street} ${marker.city} ${marker.state}</p>
+          </div>
+        </div>
+      `
+      );
+    });
+
+    mapMarker.addListener("mouseout", function () {
+      infowindow.close();
     });
   });
 }
