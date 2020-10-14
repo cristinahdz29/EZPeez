@@ -251,7 +251,7 @@ b {
   }
 
   #mapListDiv #searchDiv {
-    width: 80%;
+    width: 50%;
   }
   
   #mapListDiv #restroomDiv {
@@ -259,9 +259,13 @@ b {
   }
 
   #mapListDiv #map {
-    width: 100%;
+    width: 75%;
     height: 200px;
     
+  }
+
+  #mapDiv {
+    width: 100%;
   }
 
 }
