@@ -149,16 +149,17 @@ searchButton.addEventListener("click", async function () {
         <div id="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-            <li><i>${restroom.comment}</i></li>
-            <li>((restroom.accessible == true)</li>
+            <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+            <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+            <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+            <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+            <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+            <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
         `
         
     })
     restroomUL.innerHTML = work.join(" ")
-    
-
-
 });
 
 wheelchair.addEventListener("click", async function () {
