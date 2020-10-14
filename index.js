@@ -91,9 +91,9 @@ searchButton.addEventListener("click", async function () {
     let work = restrooms.map((restroom) => {
         return `
         <div id="separate">
-            <li><b>${restrooms.name}</b></li>
-            <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li><br>
-            <li>${restrooms.comment}</li>
+            <li><b>${restroom.name}</b></li>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${restroom.comment}</li>
         </div>
         `
         
