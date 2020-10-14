@@ -89,12 +89,11 @@ searchButton.addEventListener("click", async function () {
 
     let work = restrooms.map((restrooms) => {
         return `
-        <li><h2><b>${restrooms.name}</b><h2><br>
-            <ul>
-                <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li>
-                <li>${restrooms.comment}</li>
-            </ul>
-        </li>
+        <div id="separate">
+            <li><b>${restrooms.name}</b></li>
+            <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li><br>
+            <li>${restrooms.comment}</li>
+        </div>
         `
     })
     restroomUL.insertAdjacentHTML('beforeend', work.join(''))
