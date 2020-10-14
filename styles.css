@@ -5,7 +5,7 @@ body {
 }
 
 #container {
-align-items: center;
+  align-items: center;
 }
 
 #content {
@@ -89,7 +89,7 @@ p {
 }
 
 #restroomDiv {
-  background-color: #0076BA;
+  background-color: #0076ba;
   color: rgb(34, 79, 105);
   border-radius: 15px;
   /* padding: 10px; */
@@ -107,13 +107,11 @@ p {
   padding: 5px;
 }
 
-
 li {
   list-style-type: none;
   /* margin-right: 8%; */
   text-align: initial;
   /* margin: 20px; */
-
 }
 
 #separate {
@@ -128,27 +126,24 @@ b {
   font-weight: bolder;
 }
 
-
-
-
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
-
   #container {
     display: flex;
     flex-direction: column;
   }
-  
+
   #content {
     margin: 20px;
   }
-  
+
   h1 {
     font-size: 60px;
   }
 
   p {
     font-size: 15px;
-    padding: 5px  }
+    padding: 5px;
+  }
 
   #addressTextBox {
     padding-left: 1%;
@@ -164,13 +159,11 @@ b {
 
   #map {
     width: 100%;
-    height: 200px
+    height: 200px;
   }
-  
 }
 
 @media only screen and (min-device-width: 426px) and (max-device-width: 600px) {
-
   #filters {
     display: flex;
     flex-direction: column;
@@ -185,7 +178,6 @@ b {
   #restroomDiv {
     font-size: 15px;
   }
-
 }
 
 @media only screen and (min-device-width: 601px) {
@@ -199,12 +191,10 @@ b {
 
   #restroomDiv {
     font-size: 15px;
-    }
-  
+  }
 }
 
 @media only screen and (min-device-width: 769px) {
-
   /* #content {
     text-align: center;
   } */
@@ -212,21 +202,20 @@ b {
   #container {
     display: flex;
     flex-direction: column;
-    align-items: initial; 
+    align-items: initial;
     width: 100%;
     justify-content: center;
-   }
+  }
 
-   #mapListDiv {
-     display: flex;
-     
-     
-   }
+  #mapListDiv {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
   #search {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
   }
 
   #filters {
@@ -237,8 +226,6 @@ b {
     font-size: 15px;
     padding-left: 1%;
   }
-
-  
 
   #restroomDiv {
     display: flex;
@@ -255,19 +242,17 @@ b {
   #mapListDiv #searchDiv {
     width: 50%;
   }
-  
+
   #mapListDiv #restroomDiv {
     width: 50%;
   }
 
   #mapListDiv #map {
-    width: 75%;
+    width: 100%;
     height: 200px;
-    
   }
 
   #mapDiv {
-    width: 100%;
+    width: 50%;
   }
-
 }
