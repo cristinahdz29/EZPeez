@@ -191,7 +191,7 @@ addressTextBox.addEventListener("keypress", async function (e) {
             <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
             <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
-
+            `
             
         })
         restroomUL.innerHTML = work.join(" ")
