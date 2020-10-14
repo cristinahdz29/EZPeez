@@ -27,12 +27,12 @@ async function getLocation() {
 
       console.log(restrooms);
 
-      let work = restrooms.map((restrooms) => {
+      let work = restrooms.map((restroom) => {
         return `
-        <li><h2><b>${restrooms.name}</b><h2><br>
+        <li><h2><b>${restroom.name}</b><h2><br>
             <ul>
-                <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li>
-                <li>${restrooms.comment}</li>
+                <li>${restroom.street} ${restroom.city}, ${restroom.state}</li>
+                <li>${restroom.comment}</li>
             </ul>
         </li>
         `;
@@ -48,15 +48,14 @@ async function getLocation() {
 //function to initialize map; have it show up on the screen on load
 async function initMap() {
   //
-  // The location of Uluru
-  var uluru = { lat: -25.344, lng: 131.036 };
+  // Default position of map is DC Atlanta/Atlanta Tech Village
+  var atv = { lat: 33.849017, lng: -84.373373 };
   // The map, centered at Uluru
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: uluru,
+    zoom: 17,
+    center: atv,
   });
-  // The marker, positioned at Uluru
-  marker = new google.maps.Marker({ position: uluru, map: map });
+  
 
   await getLocation();
 }
@@ -133,7 +132,9 @@ function renderMapAndMarkers(center, markers) {
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
   locationObj = await getLatAndLogByAddress(addressTextBox.value);
+  console.log(locationObj)
   restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
+  console.log(restrooms)
   renderMapAndMarkers(locationObj, restrooms);
 
   console.log(restrooms);
