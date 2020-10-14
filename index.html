@@ -11,24 +11,31 @@
     />
   </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EZPeeZ</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EZPeeZ</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="content">
       <div id="heading">
         <h1>EZPeeZ</h1>
         <p>finding accessible restrooms near you</p>
       </div>
       <div id="container">
-        <div id="searchAndMap">
+        <div id="search">
           <div id="searchDiv">
-            <input type="text" id="addressTextBox" placeholder="Enter address here" />
+            <input
+              type="text"
+              id="addressTextBox"
+              placeholder="Enter address here"
+            />
             <button id="searchButton">Search</button>
             <div id="filters">
               <label for="wheelchair"><input id="wheelchair" class="wheelchair" type="radio" />Wheelchair
@@ -38,21 +45,21 @@
               <label for="Unisex"><input id="unisex" class="unisex" type="radio" />Unisex</label>
             </div>
           </div>
-    
+        </div>
+
+        <div id="mapListDiv">
+          <div id="mapDiv">
           <div id="map"></div>
         </div>
         <div id="restroomDiv">
-          <ul id="restroomUL">
-          </ul>
+          <ul id="restroomUL"></ul>
+        </div>
         </div>
       </div>
-      
     </div>
 
-  <script src="index.js"></script>
+    <script src="index.js"></script>
 
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
-</body>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
+  </body>
 </html>
