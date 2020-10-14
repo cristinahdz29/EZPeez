@@ -87,7 +87,7 @@ searchButton.addEventListener("click", async function () {
     
     console.log(restrooms);
     
-
+// pull information from the API and place on display -Dom
     let work = restrooms.map((restroom) => {
         return `
         <li><h2><b>${restroom.name}</b><h2><br>
