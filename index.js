@@ -162,6 +162,38 @@ searchButton.addEventListener("click", async function () {
     restroomUL.innerHTML = work.join(" ")
 });
 
+//Adding event listener to addressTextBox (for hitting enter)
+addressTextBox.addEventListener("keypress", async function (e) {
+    if (e.key === "Enter") {
+        locationObj = await getLatAndLogByAddress(addressTextBox.value);
+        console.log(locationObj)
+        restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
+        console.log(restrooms)
+        renderMapAndMarkers(locationObj, restrooms);
+    
+        console.log(restrooms);
+    
+        renderMapAndMarkers(locationObj, restrooms);
+    
+        console.log(restrooms);
+        
+    // pull information from the API and place on display -Dom
+        let work = restrooms.map((restroom) => {
+            return `
+            <div id="separate">
+                <li><b>${restroom.name}</b></li>
+                <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+                <li>${restroom.comment}</li>
+            </div>
+            `
+            
+        })
+        restroomUL.innerHTML = work.join(" ")
+      
+    }
+  
+  });
+
 wheelchair.addEventListener("click", async function () {
   if (this.checked) {
     let response = await fetch(
