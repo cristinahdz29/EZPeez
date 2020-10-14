@@ -94,6 +94,7 @@ searchButton.addEventListener("click", async function () {
             <ul>
                 <li>${restroom.street} ${restroom.city}, ${restroom.state}</li>
                 <li>${restroom.comment}</li>
+                <li>${restroom.distance}</li>
             </ul>
         </li>
         `
