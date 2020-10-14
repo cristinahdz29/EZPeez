@@ -28,6 +28,8 @@ h1 {
   font-size: 100px;
   margin-bottom: 0px;
   line-height: 100px;
+  /* border-radius: 15px;
+  background-color: rgb(64, 99, 134); */
 }
 
 p {
@@ -35,9 +37,11 @@ p {
   line-height: 30px;
   margin-top: 0;
   color: white;
-  /* border-radius: 15px; */
+  border-radius: 15px;
   width: 100%;
   padding: 10px;
+  border-color: snow;
+  border-style: solid;
 }
 
 #searchDiv {
