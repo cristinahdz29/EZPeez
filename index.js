@@ -33,12 +33,11 @@ async function getLocation() {
 
       let work = restrooms.map((restroom) => {
         return `
-        <li><h2><b>${restroom.name}</b><h2><br>
-            <ul>
-                <li>${restroom.street} ${restroom.city}, ${restroom.state}</li>
-                <li>${restroom.comment}</li>
-            </ul>
-        </li>
+        <div id="separate">
+            <li><b>${restroom.name}</b></li>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${restroom.comment}</li>
+        </div>
         `;
       });
       restroomUL.insertAdjacentHTML("beforeend", work.join(" "));
@@ -78,7 +77,7 @@ async function getLatAndLogByAddress(address) {
 
 //function get restrooms by lat and long coordinates using the restroom API
 async function getRestroomsByLatAndLog(lat, lng) {
-  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=15&lat=${lat}&lng=${lng}`;
+  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`;
 
   let response = await fetch(url);
   let data = await response.json();

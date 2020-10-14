@@ -87,7 +87,7 @@ p {
 }
 
 #restroomDiv {
-  background-color: rgb(174, 179, 190);
+  background-color: #0076BA;
   color: rgb(34, 79, 105);
   border-radius: 15px;
   /* padding: 10px; */
@@ -209,13 +209,13 @@ b {
 
   #container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: initial; 
     width: 100%;
     justify-content: center;
    }
 
-  #searchAndMap {
+  #search {
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -223,21 +223,29 @@ b {
 
   #filters {
     display: flex;
-    flex-direction: column;
-    text-align: initial;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
     font-size: 15px;
     padding-left: 1%;
   }
+
+  
 
   #restroomDiv {
     display: flex;
     flex-direction: column;
     margin-left: 40px;
     margin-right: 40px;
+    height: 650px;
+  }
+
+  #restroomUL {
+    overflow: auto;
   }
 
   #container #searchDiv {
-    width: 100%;
+    width: 80%;
   }
   
   #container #restroomDiv {
