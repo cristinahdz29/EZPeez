@@ -157,7 +157,7 @@ searchButton.addEventListener("click", async function () {
             <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
         `
-        
+ // add ternary operators to get some of the information in conditional format       
     })
     restroomUL.innerHTML = work.join(" ")
 });
@@ -169,10 +169,6 @@ addressTextBox.addEventListener("keypress", async function (e) {
         console.log(locationObj)
         restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
         console.log(restrooms)
-        renderMapAndMarkers(locationObj, restrooms);
-    
-        console.log(restrooms);
-    
         renderMapAndMarkers(locationObj, restrooms);
     
         console.log(restrooms);
@@ -191,12 +187,8 @@ addressTextBox.addEventListener("keypress", async function (e) {
             <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
             <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
-<<<<<<< HEAD
             `
-=======
-        `
->>>>>>> main
-            
+  // add ternary operators to get some of the information in conditional format          
         })
         restroomUL.innerHTML = work.join(" ")
       
