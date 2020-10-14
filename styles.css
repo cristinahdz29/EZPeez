@@ -1,5 +1,6 @@
 body {
   background-color: rgb(0, 162, 255);
+  /* background: linear-gradient(125deg, rgb(51, 49, 49), rgb(0, 162, 255)); */
   width: 100%;
   font-family: Spectral;
 }
