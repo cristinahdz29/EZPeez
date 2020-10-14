@@ -41,7 +41,7 @@ async function getLocation() {
         </li>
         `;
       });
-      restroomUL.insertAdjacentHTML("beforeend", work.join(""));
+      restroomUL.insertAdjacentHTML("beforeend", work.join(" "));
 
       // Used the center object we created above to pass it into the renderMapandMarkers function, which needs to have center as an argument (hence us making a center object, with the lat and lng keys that the renderMapandMarkers needs)
     });
