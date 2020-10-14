@@ -1,5 +1,6 @@
 let map;
 let marker;
+let locationObj = {};
 
 //getting elements from HTML
 let addressTextBox = document.getElementById("addressTextBox");
@@ -17,13 +18,16 @@ async function getLocation() {
       console.log(position);
       //when position is consoled log, it is an object, that has lat and long as cooords
       //will create our own center object below with lat and lng as keys and their value will the lat and long from the current position object
-      let center = {
+      locationObj = {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       };
 
-      restrooms = await getRestroomsByLatAndLog(center.lat, center.lng);
-      renderMapAndMarkers(center, restrooms);
+      restrooms = await getRestroomsByLatAndLog(
+        locationObj.lat,
+        locationObj.lng
+      );
+      renderMapAndMarkers(locationObj, restrooms);
 
       console.log(restrooms);
 
