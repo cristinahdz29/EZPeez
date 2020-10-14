@@ -101,7 +101,7 @@ searchButton.addEventListener("click", async function () {
         
     })
     restroomUL.innerHTML = work.join(" ")
-    // restroomUL.insertAdjacentHTML('beforeend', work.join(''))
+    
 
 
 });
