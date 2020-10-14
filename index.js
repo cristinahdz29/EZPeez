@@ -78,7 +78,7 @@ async function getLatAndLogByAddress(address) {
 
 //function get restrooms by lat and long coordinates using the restroom API
 async function getRestroomsByLatAndLog(lat, lng) {
-  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=15&lat=${lat}&lng=${lng}`;
+  let url = `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${lat}&lng=${lng}`;
 
   let response = await fetch(url);
   let data = await response.json();
@@ -142,10 +142,6 @@ searchButton.addEventListener("click", async function () {
   renderMapAndMarkers(locationObj, restrooms);
 
   console.log(restrooms);
-
-  renderMapAndMarkers(locationObj, restrooms);
-
-    console.log(restrooms);
     
 // pull information from the API and place on display -Dom
     let work = restrooms.map((restroom) => {
@@ -153,7 +149,8 @@ searchButton.addEventListener("click", async function () {
         <div id="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-            <li>${restroom.comment}</li>
+            <li><i>${restroom.comment}</i></li>
+            <li>((restroom.accessible == true)</li>
         </div>
         `
         
