@@ -38,6 +38,8 @@ p {
   /* border-radius: 15px; */
   width: 100%;
   padding: 10px;
+  border-color: snow;
+  border-style: solid;
 }
 
 #searchDiv {
