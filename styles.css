@@ -215,6 +215,12 @@ b {
     justify-content: center;
    }
 
+   #mapListDiv {
+     display: flex;
+     
+     
+   }
+
   #search {
     display: flex;
     flex-direction: column;
@@ -244,17 +250,18 @@ b {
     overflow: auto;
   }
 
-  #container #searchDiv {
+  #mapListDiv #searchDiv {
     width: 80%;
   }
   
-  #container #restroomDiv {
+  #mapListDiv #restroomDiv {
     width: 50%;
   }
 
-  #container #map {
+  #mapListDiv #map {
     width: 100%;
     height: 200px;
+    
   }
 
 }
