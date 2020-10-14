@@ -10,35 +10,39 @@
 </head>
 
 <body>
-  <div id="content">
-    <div id="heading">
-      <h1>EZPeeZ</h1>
-      <p>finding accessible restrooms near you</p>
-    </div>
-    <div id="searchDiv">
-      <input
-        type="text"
-        id="addressTextBox"
-        placeholder="Enter address here"
-      />
-      <button id="searchButton">Search</button>
-      <div id="filters">
-        <label for="wheelchair"><input id="wheelchair" class="wheelchair" type="checkbox" />Wheelchair accessible</label>
-        <label for="changing station"><input id="changing_table" class="changing_station" type="checkbox" />Changing station</label>
-        <label for="Unisex"><input id="unisex" class="unisex" type="checkbox" />Unisex</label>
+    <div id="content">
+      <div id="heading">
+        <h1>EZPeeZ</h1>
+        <p>finding accessible restrooms near you</p>
       </div>
+      <div id="container">
+        <div id="searchAndMap">
+          <div id="searchDiv">
+            <input type="text" id="addressTextBox" placeholder="Enter address here" />
+            <button id="searchButton">Search</button>
+            <div id="filters">
+              <label for="wheelchair"><input id="wheelchair" class="wheelchair" type="checkbox" />Wheelchair
+                accessible</label>
+              <label for="changing station"><input id="changing_table" class="changing_station" type="checkbox" />Changing
+                station</label>
+              <label for="Unisex"><input id="unisex" class="unisex" type="checkbox" />Unisex</label>
+            </div>
+          </div>
+    
+          <div id="map"></div>
+        </div>
+        <div id="restroomDiv">
+          <ul id="restroomUL">
+          </ul>
+        </div>
+      </div>
+      
     </div>
 
-    <div id="map"></div>
+  <script src="index.js"></script>
 
-    <div id="restroomDiv">
-      <ul id="restroomUL">
-      </ul>
-    </div>
-  </div>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
+</body>
 
-    <script src="index.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>
-  </body>
 </html>
