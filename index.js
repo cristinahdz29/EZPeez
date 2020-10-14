@@ -191,7 +191,7 @@ addressTextBox.addEventListener("keypress", async function (e) {
             <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
             <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
-
+        `
             
         })
         restroomUL.innerHTML = work.join(" ")
@@ -201,40 +201,97 @@ addressTextBox.addEventListener("keypress", async function (e) {
   });
 
 wheelchair.addEventListener("click", async function () {
+  let wheelchairItems = []
+  restroomUL.innerHTML = " "
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
     );
     let json = await response.json();
-    let wheelchairItems = json.filter((restroom) => {
+    wheelchairItems = json.filter((restroom) => {
       return restroom.accessible == true;
     });
     console.log(wheelchairItems);
   }
+  // pull information from the API and place on display -Dom
+  let work = wheelchairItems.map((restroom) => {
+    return `
+    <div id="separate">
+        <li><b>${restroom.name}</b></li>
+        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+    </div>
+    `
+    
+})
+restroomUL.innerHTML = work.join(" ")
 });
 
 changing_table.addEventListener("click", async function () {
+  let changing_tableItems = []
+  restroomUL.innerHTML = " "
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
     );
     let json = await response.json();
-    let changing_tableItems = json.filter((restroom) => {
+    changing_tableItems = json.filter((restroom) => {
       return restroom.changing_table == true;
     });
     console.log(changing_tableItems);
   }
+   // pull information from the API and place on display -Dom
+   let work = changing_tableItems.map((restroom) => {
+    return `
+    <div id="separate">
+        <li><b>${restroom.name}</b></li>
+        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+    </div>
+    `
+    
+})
+restroomUL.innerHTML = work.join(" ")
 });
 
 unisex.addEventListener("click", async function () {
+  let unisexItems = []
+  restroomUL.innerHTML = " "
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
     );
     let json = await response.json();
-    let unisexItems = json.filter((restroom) => {
+    unisexItems = json.filter((restroom) => {
       return restroom.unisex == true;
     });
     console.log(unisexItems);
   }
+   // pull information from the API and place on display -Dom
+   let work = unisexItems.map((restroom) => {
+    return `
+    <div id="separate">
+        <li><b>${restroom.name}</b></li>
+        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+    </div>
+    `
+    
+})
+restroomUL.innerHTML = work.join(" ")
 });
