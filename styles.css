@@ -5,6 +5,10 @@ body {
   font-family: Spectral;
 }
 
+#container {
+align-items: center;
+}
+
 #content {
   display: flex;
   flex-direction: column;
@@ -16,21 +20,22 @@ body {
 #heading {
   color: white;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
   justify-content: center;
 }
 
 h1 {
   font-size: 100px;
   margin-bottom: 0px;
+  line-height: 100px;
 }
 
 p {
   font-size: 30px;
+  line-height: 30px;
   margin-top: 0;
-  color: rgb(34, 79, 105);
-  background-color: white;
-  border-radius: 15px;
+  color: white;
+  /* border-radius: 15px; */
   width: 100%;
   padding: 10px;
 }
@@ -39,7 +44,7 @@ p {
   color: white;
   background-color: rgb(0, 118, 186);
   padding: 20px;
-  margin: 20px;
+  margin-top: 0px;
   border-radius: 15px 15px;
   text-align: center;
   width: 80%;
@@ -50,7 +55,7 @@ p {
   border: none;
   margin-bottom: 10px;
   font-family: Spectral;
-  width: 50%;
+  width: 52%;
   padding: 5px;
   margin-right: 20px;
 }
@@ -65,8 +70,12 @@ p {
 
 #filters {
   text-align: center;
-
 }
+
+/* input[type="checkbox"] {
+  border: none;
+  border-radius: 15px;
+} */
 
 #map {
   height: 400px;
@@ -75,37 +84,170 @@ p {
   margin-top: 40px;
   border: white;
   border-style: solid;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
+}
+
+#restroomDiv {
+  background-color: rgb(174, 179, 190);
+  color: rgb(34, 79, 105);
+  border-radius: 15px;
+  /* padding: 10px; */
+  /* margin-left: 40px;
+  margin-right: 40px; */
+  width: 100%;
+  font-size: 10px;
+}
+
+#restroomUL {
+  list-style-type: none;
+  /* background-color: white; */
+  border-radius: 15px;
+  margin: 10px;
+  padding: 5px;
 }
 
 
-@media only screen and (min-device-width: 1024px) {
+li {
+  list-style-type: none;
+  /* margin-right: 8%; */
+  text-align: initial;
+  /* margin: 20px; */
 
-  #content {
-    text-align: center;
+}
+
+#separate {
+  background-color: white;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
+b {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+
+  #container {
+    display: flex;
+    flex-direction: column;
   }
   
-  #searchDiv {
-    width: 50%;
-    justify-content: center;
+  #content {
+    margin: 20px;
   }
-
-  #map {
-    width: 60%;
-    height: 600px;
+  
+  h1 {
+    font-size: 60px;
   }
-}
-
-@media only screen and (max-device-width: 320px) {
 
   p {
     font-size: 15px;
     padding: 5px  }
 
-  #content {
-    margin: 20px;
+  #addressTextBox {
+    padding-left: 1%;
   }
+
+  #filters {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    font-size: 15px;
+    padding-left: 1%;
+  }
+
+  #map {
+    width: 100%;
+    height: 200px
+  }
+  
 }
 
+@media only screen and (min-device-width: 426px) and (max-device-width: 600px) {
 
+  #filters {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    font-size: 15px;
+  }
 
+  b {
+    font-size: 20px;
+  }
+
+  #restroomDiv {
+    font-size: 15px;
+  }
+
+}
+
+@media only screen and (min-device-width: 601px) {
+  #searchDiv {
+    width: 400px;
+  }
+
+  b {
+    font-size: 20px;
+  }
+
+  #restroomDiv {
+    font-size: 15px;
+    }
+  
+}
+
+@media only screen and (min-device-width: 769px) {
+
+  /* #content {
+    text-align: center;
+  } */
+
+  #container {
+    display: flex;
+    flex-direction: row;
+    align-items: initial; 
+    width: 100%;
+    justify-content: center;
+   }
+
+  #searchAndMap {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  #filters {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    font-size: 15px;
+    padding-left: 1%;
+  }
+
+  #restroomDiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  #container #searchDiv {
+    width: 100%;
+  }
+  
+  #container #restroomDiv {
+    width: 50%;
+  }
+
+  #container #map {
+    width: 100%;
+    height: 200px;
+  }
+
+}
