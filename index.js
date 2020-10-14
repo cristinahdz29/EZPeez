@@ -143,12 +143,8 @@ searchButton.addEventListener("click", async function () {
 
   console.log(restrooms);
 
+  renderMapAndMarkers(locationObj, restrooms);
 
-    );
-    renderMapAndMarkers(locationObj, restrooms);
-
-    
-    
     console.log(restrooms);
 
     let work = restrooms.map((restrooms) => {
