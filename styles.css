@@ -211,6 +211,7 @@ b {
   #mapListDiv {
     display: flex;
     flex-direction: row-reverse;
+    margin-top: 5%;
   }
 
   #search {
@@ -251,9 +252,11 @@ b {
   #mapListDiv #map {
     width: 100%;
     height: 200px;
+    margin: 0;
   }
 
   #mapDiv {
     width: 50%;
+    
   }
 }
