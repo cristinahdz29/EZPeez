@@ -90,21 +90,11 @@ searchButton.addEventListener("click", async function () {
 // pull information from the API and place on display -Dom
     let work = restrooms.map((restroom) => {
         return `
-<<<<<<< HEAD
-        <li><h2><b>${restroom.name}</b><h2><br>
-            <ul>
-                <li>${restroom.street} ${restroom.city}, ${restroom.state}</li>
-                <li>${restroom.comment}</li>
-                <li>${restroom.distance}</li>
-            </ul>
-        </li>
-=======
         <div id="separate">
             <li><b>${restrooms.name}</b></li>
             <li>${restrooms.street} ${restrooms.city}, ${restrooms.state}</li><br>
             <li>${restrooms.comment}</li>
         </div>
->>>>>>> main
         `
         
     })
