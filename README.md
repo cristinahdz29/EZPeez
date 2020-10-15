@@ -51,13 +51,9 @@ An app developed to make finding a public restroom near you that much easier. We
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
 * [Videos And Screenshots](#videos-and-screenshots)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 
@@ -76,48 +72,23 @@ Why an app such as this can be helpfull:
 * This will be especially helful for travellers and will allow people from all walks of life to find accessible bathrooms.
 
 
-<!--Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`-->
-
-
 ### Built With
 * JavaScript
 * Html5
 * CSS3
-<!-- 
-* []() not the above example of how to link in Markdown.
--->
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-You should explain how to get your project up and running locally. EXAMPLE: To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-Here is an example of what this should contain and how to do it. If it is required for the project it should go here.
-* UUID
-```sh
-npm install npm@latest -g
-```
+You can copy the link from our github code or follow any of the links in this document to see the live site. 
 
 ### Installation
 
 1. Clone to local machine
 ```sh
-git clone https://github.com/github_username/repo_name.git
+git clone https://github.com/cristinahdz29/frontend_project.git
 ```
-2. Install NPM packages
-```sh
-npm install
-```
-3. 
 
-4. You need an API Key from [https://example.com](https://example.com). Then add your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -129,36 +100,8 @@ _For more examples, please refer to the [Project-Demo](https://example.com)_
 ## Videos and Screenshots
 
 Here are some images of our code and our product. 
-<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif"> 
-![dbzcode](https://user-images.githubusercontent.com/49554888/96146084-8b1cc300-0ecb-11eb-8025-1cb8b2e734f5.png)
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-Detail what you did as you do it. Add more info each time a feature is completed or a new feature is added/removed. You can also let people know of any known issues or new features by just linking to your:  [open issues](https://github.com/github_username/repo_name/issues). 
-
-
-
-<!-- CONTRIBUTING -->
-<!--## Contributing -->
-
-<!--* Either provide a [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute or list them as such:-->
-
-<!--1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
-
-
-
-
-<!-- LICENSE -->
-<!--## License-->
-
-<!-- Distributed under the MIT License. See `LICENSE` for more information.-->
-
+<img src="images/jsScreenShot"> 
+<img src="images/htmlScreenShot">
 
 
 <!-- CONTACT -->
