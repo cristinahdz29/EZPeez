@@ -69,22 +69,37 @@ section article::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10%;
+  /* margin: 0 10%; */
   margin-bottom: 5%;
+  margin-left: 1.8%;
+  margin-right: 3%;
 }
 
 #heading {
+  display: flex;
+  flex-direction: column;
   color: white;
   text-align: center;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   margin-bottom: 40px;
   justify-content: center;
+  align-items: center;
 }
 
 h1 {
   font-size: 100px;
   margin-bottom: 0px;
   line-height: 100px;
+}
+
+img {
+  width: 80%;
+  height: auto;
+  margin-top: 5%;
+  /* margin-bottom: 1%; */
+  /* border-color: snow;
+  border-style: solid;
+  border-width: 4px; */
 }
 
 p {
@@ -94,8 +109,12 @@ p {
   color: white;
   width: 100%;
   padding: 10px;
-  border-color: snow;
-  border-style: solid;
+  /* border-color: snow;
+  border-style: solid; */
+}
+
+#search {
+  width: 100%;
 }
 
 #searchDiv {
@@ -159,6 +178,7 @@ p {
 #store {
   font-size: larger;
   font-weight: bolder;
+  text-decoration: underline;
 }
 
 #store2 {
@@ -220,7 +240,8 @@ b {
   }
 
   #searchDiv {
-    width: 89%;
+    width: 87%;
+    z-index: 3;
   }
 
   #content {
@@ -249,8 +270,19 @@ b {
   }
 
   #map {
-    width: 100%;
+    width: 97%;
     height: 200px;
+    z-index: 2;
+
+  }
+
+  img {
+    width: 350px;
+    height: auto;
+  }
+
+  #restroomDiv {
+    width: 98%;
   }
 }
 
@@ -268,6 +300,8 @@ b {
 
   #restroomDiv {
     font-size: 15px;
+    z-index: 2;
+
   }
 }
 
@@ -281,6 +315,8 @@ b {
 
   #restroomDiv {
     font-size: 15px;
+    z-index: 2;
+
   }
 }
 
