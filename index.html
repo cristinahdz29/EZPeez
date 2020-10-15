@@ -23,6 +23,7 @@
   </head>
 
   <body>
+    <section>
     <div id="content">
       <div id="heading">
         <h1>EZPeeZ</h1>
@@ -57,7 +58,38 @@
         </div>
       </div>
     </div>
+  </section>
+    <script type="text/javascript">
+      function createBubble() {
+        //grabs the section element from above
+        const section = document.querySelector('section')
+        //creates an empty article element
+        const createElement = document.createElement('article')
+        //sets the variable size to = Math.random(generates a random number between 0 and 1) * 60
+        var size = Math.random() * 60
+        
+        //create actual bubble elements: width, height and set the attribute id="createElement"
+        //width= 20 + size variable created above + px
+        createElement.style.width = 20 + size + 'px'
+         //height= 20 + size variable created above + px
+        createElement.style.height = 20 + size + 'px'
+        //set the elements id
+        createElement.setAttribute("id", "createElement")
+        //createElement.style.left(create an element to the left) = Math.random(generates a random number between 0 and 1)
+        createElement.style.left = Math.random() * innerWidth + 'px'
+        //Putting elements made into the section element
+        section.appendChild(createElement)
 
+        //Makes bubbles "pop" or remove
+        setTimeout(() => {
+          createElement.remove()
+        }, 4000)
+      }
+      
+      //Number of bubbles made
+      setInterval(createBubble, 100)
+
+    </script>
     <script src="index.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHy8QmVO1C4nSFZhTo9KZZ24Py0IuHrY4&callback=initMap"></script>

@@ -1,8 +1,64 @@
 body {
   background-color: rgb(0, 162, 255);
-  /* background: linear-gradient(125deg, rgb(51, 49, 49), rgb(0, 162, 255)); */
+  /* background: linear-gradient(75deg, rgb(7, 42, 243), rgb(0, 162, 255)); */
   width: 100%;
   font-family: Spectral;
+}
+
+section {
+  /*defines that the section element should stack lower than any other element with a higher z-index (in this case, the map, search area and bathrooms list)*/
+  z-index: 1;
+  position: relative;
+  /*states that if bubbles come out of the section container, hide them*/
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section article {
+  /*The element is positioned relative to its first positioned (not static) ancestor element (the section)*/
+  position: absolute;
+  bottom: 50px;
+  background: transparent;
+  /* make section elements circles */
+  border-radius: 50%;
+
+  pointer-events: none;
+  /* adds bubble shadow */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  /* animate is the nme of the animation, where I define below, makes the animation last for 4 seconds, perform the animation in a linear way (no acceleration or slowing down) and to repeat the aniation infinately */
+  animation: animate 4s linear infinite;
+}
+
+/* Puts "shine" on bubbles */
+section article::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* transform allows us to use scale and translate properties: scale creates the size of the "shine" translate moves it to the upper left of the bubble*/
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(#fff, transparent);
+  border-radius: 50%;
+}
+
+/* moves the bubble in the y-direction at different intervals (0%, 99%, 100%) within the animation */
+@keyframes animate {
+  0%
+  {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  99% 
+  {
+    opacity: 1;
+  }
+  100%
+  {
+    transform: translateY(-1200%);
+    opacity: 0;
+  }
 }
 
 #container {
@@ -22,6 +78,7 @@ body {
 #heading {
   color: white;
   text-align: center;
+  margin-top: 100px;
   margin-bottom: 40px;
   justify-content: center;
 }
@@ -45,8 +102,10 @@ p {
 }
 
 #searchDiv {
+  z-index: 2;
   color: white;
-  background-color: rgb(0, 118, 186);
+  background-color: rgb(29, 28, 28);
+  /* background-color: rgb(0, 118, 186); */
   padding: 20px;
   margin-top: 0px;
   border-radius: 15px 15px;
@@ -90,12 +149,8 @@ p {
   text-align: center;
 }
 
-/* input[type="checkbox"] {
-  border: none;
-  border-radius: 15px;
-} */
-
 #map {
+  z-index: 2;
   height: 400px;
   width: 100%;
   border-radius: 15px;
@@ -106,7 +161,9 @@ p {
 }
 
 #restroomDiv {
-  background-color: #0076ba;
+  z-index: 2;
+  background-color: rgb(29, 28, 28);
+  /* background-color: #0076ba; */
   color: rgb(34, 79, 105);
   border-radius: 15px;
   /* padding: 10px; */
