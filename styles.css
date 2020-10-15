@@ -119,7 +119,7 @@ p {
   margin-top: 0px;
   border-radius: 15px 15px;
   text-align: center;
-  width: 80%;
+  width: 94%;
 }
 
 #addressTextBox {
@@ -189,6 +189,8 @@ p {
   margin-right: 40px; */
   width: 100%;
   font-size: 10px;
+  height: 500px;
+  overflow: auto;
 }
 
 #restroomUL {
@@ -208,9 +210,11 @@ li {
 
 .separate {
   background-color: white;
-  border-radius: 15px;
-  margin: 10px;
   padding: 10px;
+  border-radius: 3px;
+  margin: 8px;
+  margin-block-start: 0;
+  /* margin-block-end: 0; */
 }
 
 .separate:hover {
@@ -226,6 +230,10 @@ b {
   #container {
     display: flex;
     flex-direction: column;
+  }
+
+  #searchDiv {
+    width: 89%;
   }
 
   #content {
@@ -279,9 +287,8 @@ b {
 @media only screen and (min-device-width: 601px) {
   /* #searchDiv {
     /* width: 400px; */
-  /* } */ */
-
-  b {
+  /* } */
+  */ b {
     font-size: 20px;
   }
 
@@ -295,26 +302,29 @@ b {
     text-align: center;
   } */
 
+  /* #addressTextBox {
+    width: 77%;
+  } */
+
   #container {
     display: flex;
     flex-direction: column;
     align-items: initial;
     width: 100%;
     justify-content: center;
-    
   }
 
   #searchDiv {
     text-align: left;
     width: 50%;
   }
-  
+
   #searchButton {
     width: 14%;
   }
 
   #addressTextBox {
-    width: 81%;
+    width: 77%;
   }
   #mapListDiv {
     display: flex;
@@ -365,7 +375,6 @@ b {
 
   #mapDiv {
     width: 50%;
-    
   }
 
   .separate {
