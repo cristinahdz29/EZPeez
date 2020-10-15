@@ -61,6 +61,7 @@
   </section>
     <script type="text/javascript">
       function createBubble() {
+<<<<<<< HEAD
         //grabs the section element from above
         const section = document.querySelector('section')
         //creates an empty article element
@@ -81,12 +82,30 @@
         section.appendChild(createElement)
 
         //Makes bubbles "pop" or remove
+=======
+        const section = document.querySelector('section')
+        const createElement = document.createElement('article')
+        var size = Math.random() * 60
+        
+        createElement.style.width = 20 + size + 'px'
+        createElement.style.height = 20 + size + 'px'
+        createElement.setAttribute("id", "createElement")
+        //createElement.style.left(create an element to the left) = Math.random(generates a random number between 0 and 1)
+        createElement.style.left = Math.random() * innerWidth + 'px'
+        section.appendChild(createElement)
+
+        //Makes bubbles "pop"
+>>>>>>> main
         setTimeout(() => {
           createElement.remove()
         }, 4000)
       }
       
+<<<<<<< HEAD
       //Number of bubbles made
+=======
+      //Number of bubbles of bubbles made
+>>>>>>> main
       setInterval(createBubble, 100)
 
     </script>
