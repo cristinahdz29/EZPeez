@@ -33,7 +33,7 @@ async function getLocation() {
 
       let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment}</li>
@@ -145,7 +145,7 @@ searchButton.addEventListener("click", async function () {
 // pull information from the API and place on display -Dom
     let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -176,7 +176,7 @@ addressTextBox.addEventListener("keypress", async function (e) {
 
     let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -211,7 +211,7 @@ wheelchair.addEventListener("click", async function () {
   // pull information from the API and place on display -Dom
   let work = wheelchairItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -243,7 +243,7 @@ changing_table.addEventListener("click", async function () {
    // pull information from the API and place on display -Dom
    let work = changing_tableItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -275,7 +275,7 @@ unisex.addEventListener("click", async function () {
    // pull information from the API and place on display -Dom
    let work = unisexItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
