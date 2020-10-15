@@ -34,10 +34,15 @@ async function getLocation() {
       let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-            <li><b>${restroom.name}</b></li>
-            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-            <li>${restroom.comment}</li>
-        </div>
+        <h3>${restroom.name}</h3>
+        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+    </div>
         `;
       });
       restroomUL.insertAdjacentHTML("beforeend", work.join(" "));
@@ -116,12 +121,16 @@ function renderMapAndMarkers(center, markers) {
     mapMarker.addListener("mouseover", function () {
       infowindow.open(map, mapMarker);
       infowindow.setContent(
-        `<div class='infowindow-container'>
-          <div class='inner'>
-            <h4>${marker.name}</h4>
-            <p>Address: ${marker.street} ${marker.city} ${marker.state}</p>
-          </div>
-        </div>
+        `<div class="separate">
+        <h3>${restroom.name}</h3>
+        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
+        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
+        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
+        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+    </div>
       `
       );
     });
@@ -146,17 +155,17 @@ searchButton.addEventListener("click", async function () {
     let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-            <li><b>${restroom.name}</b></li>
+            <h3>${restroom.name}</h3>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
             <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
             <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
             <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-            <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-            <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+            <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+            <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
         `
-        
+ // add ternary operators to get some of the information in conditional format       
     })
     restroomUL.innerHTML = work.join(" ")
 });
@@ -171,27 +180,23 @@ addressTextBox.addEventListener("keypress", async function (e) {
         renderMapAndMarkers(locationObj, restrooms);
     
         console.log(restrooms);
-    
-        renderMapAndMarkers(locationObj, restrooms);
-    
-        console.log(restrooms);
         
     // pull information from the API and place on display -Dom
 
     let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-            <li><b>${restroom.name}</b></li>
+            <h3>${restroom.name}</h3>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
             <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
             <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
             <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-            <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-            <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+            <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+            <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
         </div>
-        `
-            
+            `
+  // add ternary operators to get some of the information in conditional format          
         })
         restroomUL.innerHTML = work.join(" ")
       
@@ -216,14 +221,14 @@ wheelchair.addEventListener("click", async function () {
   let work = wheelchairItems.map((restroom) => {
     return `
     <div class="separate">
-        <li><b>${restroom.name}</b></li>
+        <h3>${restroom.name}</h3>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
         <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
         <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
     </div>
     `
     
@@ -248,14 +253,14 @@ changing_table.addEventListener("click", async function () {
    let work = changing_tableItems.map((restroom) => {
     return `
     <div class="separate">
-        <li><b>${restroom.name}</b></li>
+        <h3>${restroom.name}</h3>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
         <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
         <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
     </div>
     `
     
@@ -280,14 +285,14 @@ unisex.addEventListener("click", async function () {
    let work = unisexItems.map((restroom) => {
     return `
     <div class="separate">
-        <li><b>${restroom.name}</b></li>
+        <h3>${restroom.name}</h3>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
         <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
         <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li>${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li>${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
+        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
+        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
     </div>
     `
     
