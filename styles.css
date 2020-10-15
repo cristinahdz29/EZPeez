@@ -1,11 +1,12 @@
 body {
-  /* background-color: rgb(0, 162, 255); */
-  background: linear-gradient(125deg, rgb(51, 49, 49), rgb(0, 162, 255));
+  background-color: rgb(0, 162, 255);
+  /* background: linear-gradient(75deg, rgb(7, 42, 243), rgb(0, 162, 255)); */
   width: 100%;
   font-family: Spectral;
 }
 
 section {
+  z-index: 1;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -15,7 +16,7 @@ section {
   align-items: center;
 }
 
-section span {
+section article {
   position: absolute;
   bottom: 50px;
   background: transparent;
@@ -23,9 +24,22 @@ section span {
 
   pointer-events: none;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  /* animate is the nme of the animation, where I define below, makes the animation last for 4 seconds, perform the animation in a linear way (no acceleration or slowing down) and to repeat the aniation infinately */
   animation: animate 4s linear infinite;
 }
 
+/* Puts "shine" on bubbles */
+section article::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(#fff, transparent);
+  border-radius: 50%;
+}
+
+/* moves the bubble in the y-direction at different intervals (0%, 99%, 100%) within the animation */
 @keyframes animate {
   0%
   {
@@ -84,8 +98,10 @@ p {
 }
 
 #searchDiv {
+  z-index: 2;
   color: white;
-  background-color: rgb(0, 118, 186);
+  background-color: rgb(29, 28, 28);
+  /* background-color: rgb(0, 118, 186); */
   padding: 20px;
   margin-top: 0px;
   border-radius: 15px 15px;
@@ -130,6 +146,7 @@ p {
 }
 
 #map {
+  z-index: 2;
   height: 400px;
   width: 100%;
   border-radius: 15px;
@@ -140,7 +157,9 @@ p {
 }
 
 #restroomDiv {
-  background-color: #0076ba;
+  z-index: 2;
+  background-color: rgb(29, 28, 28);
+  /* background-color: #0076ba; */
   color: rgb(34, 79, 105);
   border-radius: 15px;
   /* padding: 10px; */
