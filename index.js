@@ -46,7 +46,6 @@ async function getLocation() {
         <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
     </div>
 
-    // <div>
         `;
       });
       restroomUL.insertAdjacentHTML("beforeend", work.join(" "));
