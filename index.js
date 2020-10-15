@@ -34,7 +34,9 @@ async function getLocation() {
       let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-        <h3>${restroom.name}</h3>
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+        </div>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -122,7 +124,9 @@ function renderMapAndMarkers(center, markers) {
       infowindow.open(map, mapMarker);
       infowindow.setContent(
         `<div class="separate">
-        <h3>${restroom.name}</h3>
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+        </div>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -155,7 +159,9 @@ searchButton.addEventListener("click", async function () {
     let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-            <h3>${restroom.name}</h3>
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+        </div>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
             <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -186,7 +192,9 @@ addressTextBox.addEventListener("keypress", async function (e) {
     let work = restrooms.map((restroom) => {
         return `
         <div class="separate">
-            <h3>${restroom.name}</h3>
+            <div id="store2">
+            <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+            </div>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
             <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -221,7 +229,9 @@ wheelchair.addEventListener("click", async function () {
   let work = wheelchairItems.map((restroom) => {
     return `
     <div class="separate">
-        <h3>${restroom.name}</h3>
+    <div id="store2">
+    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+    </div>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -253,7 +263,9 @@ changing_table.addEventListener("click", async function () {
    let work = changing_tableItems.map((restroom) => {
     return `
     <div class="separate">
-        <h3>${restroom.name}</h3>
+    <div id="store2">
+    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+    </div>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
@@ -285,7 +297,9 @@ unisex.addEventListener("click", async function () {
    let work = unisexItems.map((restroom) => {
     return `
     <div class="separate">
-        <h3>${restroom.name}</h3>
+    <div id="store2">
+    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+    </div>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
         <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
