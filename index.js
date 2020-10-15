@@ -180,7 +180,7 @@ addressTextBox.addEventListener("keypress", async function (e) {
 
     let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
