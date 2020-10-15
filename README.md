@@ -1,19 +1,6 @@
 # <p align="center"><b>EZeePZ</b>
 An app developed to make finding a public restroom near you that much easier. We hope that this will allow people of all walks of life to find suitable public restrooms near them. </p>
 
-<!--
-*** Reuse this template to avoid retyping. Do a search and replace for the following that relate to you:
-*** github_username, repo_name, twitter_handle, email
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables along with a few blank ones just needing content
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use. Your editor may have an extension availabale. VSCode does for sure. You can add badges like ordinary snippets by pressing a few keys.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 # <h2 align="center">![Visitor Count](https://profile-counter.glitch.me/{DomWat}/count.svg) Thank you for stopping by!
 
 
@@ -100,8 +87,8 @@ _For more examples, please refer to the [Project-Demo](https://example.com)_
 ## Videos and Screenshots
 
 Here are some images of our code and our product. 
-<img src="images/jsScreenShot"> 
-<img src="images/htmlScreenShot">
+<img width="1002" alt="jsScreenShot" src="https://user-images.githubusercontent.com/70596778/96178356-e616e000-0ef4-11eb-8570-9ade140894c8.png"> 
+<img width="653" alt="htmlScreenShot" src="https://user-images.githubusercontent.com/70596778/96178408-fc24a080-0ef4-11eb-8458-9d39f2894091.png">
 
 
 <!-- CONTACT -->
