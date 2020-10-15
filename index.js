@@ -33,7 +33,7 @@ async function getLocation() {
 
       let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment}</li>
@@ -87,7 +87,7 @@ async function getRestroomsByLatAndLog(lat, lng) {
 
 function renderMapAndMarkers(center, markers) {
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
+    zoom: 15,
     center: new google.maps.LatLng(center.lat, center.lng),
   });
 
@@ -145,7 +145,7 @@ searchButton.addEventListener("click", async function () {
 // pull information from the API and place on display -Dom
     let work = restrooms.map((restroom) => {
         return `
-        <div id="separate">
+        <div class="separate">
             <li><b>${restroom.name}</b></li>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -215,7 +215,7 @@ wheelchair.addEventListener("click", async function () {
   // pull information from the API and place on display -Dom
   let work = wheelchairItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -247,7 +247,7 @@ changing_table.addEventListener("click", async function () {
    // pull information from the API and place on display -Dom
    let work = changing_tableItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
@@ -279,7 +279,7 @@ unisex.addEventListener("click", async function () {
    // pull information from the API and place on display -Dom
    let work = unisexItems.map((restroom) => {
     return `
-    <div id="separate">
+    <div class="separate">
         <li><b>${restroom.name}</b></li>
         <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
         <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
