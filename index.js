@@ -87,7 +87,7 @@ async function getRestroomsByLatAndLog(lat, lng) {
 
 function renderMapAndMarkers(center, markers) {
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 13,
+    zoom: 15,
     center: new google.maps.LatLng(center.lat, center.lng),
   });
 
