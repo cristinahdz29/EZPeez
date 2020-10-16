@@ -35,17 +35,39 @@ async function getLocation() {
         return `
         <div class="separate">
         <div id="store2">
-        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
+          2
+        )} mi.</i>
         </div>
-        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
-        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
-        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
-        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
-    </div>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${
+              restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
+            }</li><br>
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
+            }</li>
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
+            }</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
+            
+            <div id="votesAndDirectionButtonDiv">
+            <div id="votes">
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
+            </div>
 
+            <div id="directionsButton">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${
+              restroom.latitude
+            },${
+          restroom.longitude
+        }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
+        </div>
+        </div>
+        </div>
         `;
       });
       restroomUL.insertAdjacentHTML("beforeend", work.join(" "));
@@ -66,7 +88,6 @@ async function initMap() {
     zoom: 17,
     center: atv,
   });
-  
 
   await getLocation();
 }
@@ -125,7 +146,9 @@ function renderMapAndMarkers(center, markers) {
       infowindow.open(map, mapMarker);
       infowindow.setContent(
         `
-        <b id="store">${marker.name} </b><i> ${marker.distance.toFixed(2)} mi.</i>
+        <b id="store">${marker.name} </b><i> ${marker.distance.toFixed(
+          2
+        )} mi.</i>
         <li>${marker.street} ${marker.city}, ${marker.state}</li><br>
         
       `
@@ -141,115 +164,117 @@ function renderMapAndMarkers(center, markers) {
 //Adding event listener to search button
 searchButton.addEventListener("click", async function () {
   locationObj = await getLatAndLogByAddress(addressTextBox.value);
-  console.log(locationObj)
+  console.log(locationObj);
   restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
-  console.log(restrooms)
+  console.log(restrooms);
   renderMapAndMarkers(locationObj, restrooms);
 
   console.log(restrooms);
-    
-// pull information from the API and place on display -Dom
-    let work = restrooms.map((restroom) => {
-        return `
+
+  // pull information from the API and place on display -Dom
+  let work = restrooms.map((restroom) => {
+    return `
         <div class="separate">
         <div id="store2">
         <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
-          2
-        )} mi.</i>
+      2
+    )} mi.</i>
         </div>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${
               restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
             }</li><br>
-            <li>${
-              restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
             }</li>
-            <li>${
-              restroom.changing_table == true ? `Changing Table: Yes` : ` `
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
             }</li>
-            <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
             
             <div id="votesAndDirectionButtonDiv">
             <div id="votes">
-            <li style = "color: green;">${
-              restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `
-            }</li>
-            <li style = "color: red;">${
-              restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `
-            }</li> 
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
             </div>
 
             <div id="directionsButton">
             <a href="https://www.google.com/maps/dir/?api=1&destination=${
               restroom.latitude
             },${
-          restroom.longitude
-        }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
+      restroom.longitude
+    }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
         </div>
         </div>
         </div>
         `;
- // add ternary operators to get some of the information in conditional format       
-    })
-    restroomUL.innerHTML = work.join(" ")
-     
+    // add ternary operators to get some of the information in conditional format
+  });
+  restroomUL.innerHTML = work.join(" ");
 });
 
 //Adding event listener to addressTextBox (for hitting enter)
 addressTextBox.addEventListener("keypress", async function (e) {
-    if (e.key === "Enter") {
-        locationObj = await getLatAndLogByAddress(addressTextBox.value);
-        console.log(locationObj)
-        restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
-        console.log(restrooms)
-        renderMapAndMarkers(locationObj, restrooms);
-    
-        console.log(restrooms);
-        
+  if (e.key === "Enter") {
+    locationObj = await getLatAndLogByAddress(addressTextBox.value);
+    console.log(locationObj);
+    restrooms = await getRestroomsByLatAndLog(locationObj.lat, locationObj.lng);
+    console.log(restrooms);
+    renderMapAndMarkers(locationObj, restrooms);
+
+    console.log(restrooms);
+
     // pull information from the API and place on display -Dom
 
     let work = restrooms.map((restroom) => {
-        return `
+      return `
         <div class="separate">
-            <div id="store2">
-            <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
-            </div>
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
+        2
+      )} mi.</i>
+        </div>
             <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
             <li>${
               restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
             }</li><br>
-            <li>${
-              restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
             }</li>
-            <li>${
-              restroom.changing_table == true ? `Changing Table: Yes` : ` `
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
             }</li>
-            <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-            <li style = "color: green;">${
-              restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `
-            }</li>
-            <li style = "color: red;">${
-              restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `
-            }</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
+            
+            <div id="votesAndDirectionButtonDiv">
+            <div id="votes">
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
+            </div>
 
-            <div id="searchButton">
-            <a href="https://www.google.com/maps/dir/?api=1&${
+            <div id="directionsButton">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${
               restroom.latitude
-            },${restroom.longitude}" target="_blank">Directions<a>
+            },${
+        restroom.longitude
+      }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
         </div>
         </div>
-            `;
-  // add ternary operators to get some of the information in conditional format          
-        })
-        restroomUL.innerHTML = work.join(" ")
-      
-    }
-  
-  });
+        </div>
+        `;
+      // add ternary operators to get some of the information in conditional format
+    });
+    restroomUL.innerHTML = work.join(" ");
+  }
+});
 
 wheelchair.addEventListener("click", async function () {
-  let wheelchairItems = []
-  restroomUL.innerHTML = " "
+  let wheelchairItems = [];
+  restroomUL.innerHTML = " ";
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
@@ -263,27 +288,49 @@ wheelchair.addEventListener("click", async function () {
   // pull information from the API and place on display -Dom
   let work = wheelchairItems.map((restroom) => {
     return `
-    <div class="separate">
-    <div id="store2">
-    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
-    </div>
-        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
-        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
-        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
-        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
-    </div>
-    `
-    
-})
-restroomUL.innerHTML = work.join(" ")
+        <div class="separate">
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
+      2
+    )} mi.</i>
+        </div>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${
+              restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
+            }</li><br>
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
+            }</li>
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
+            }</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
+            
+            <div id="votesAndDirectionButtonDiv">
+            <div id="votes">
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
+            </div>
+
+            <div id="directionsButton">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${
+              restroom.latitude
+            },${
+      restroom.longitude
+    }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
+        </div>
+        </div>
+        </div>
+        `;
+  });
+  restroomUL.innerHTML = work.join(" ");
 });
 
 changing_table.addEventListener("click", async function () {
-  let changing_tableItems = []
-  restroomUL.innerHTML = " "
+  let changing_tableItems = [];
+  restroomUL.innerHTML = " ";
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
@@ -294,30 +341,52 @@ changing_table.addEventListener("click", async function () {
     });
     console.log(changing_tableItems);
   }
-   // pull information from the API and place on display -Dom
-   let work = changing_tableItems.map((restroom) => {
+  // pull information from the API and place on display -Dom
+  let work = changing_tableItems.map((restroom) => {
     return `
-    <div class="separate">
-    <div id="store2">
-    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
-    </div>
-        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
-        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
-        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
-        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
-    </div>
-    `
-    
-})
-restroomUL.innerHTML = work.join(" ")
+        <div class="separate">
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
+      2
+    )} mi.</i>
+        </div>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${
+              restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
+            }</li><br>
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
+            }</li>
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
+            }</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
+            
+            <div id="votesAndDirectionButtonDiv">
+            <div id="votes">
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
+            </div>
+
+            <div id="directionsButton">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${
+              restroom.latitude
+            },${
+      restroom.longitude
+    }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
+        </div>
+        </div>
+        </div>
+        `;
+  });
+  restroomUL.innerHTML = work.join(" ");
 });
 
 unisex.addEventListener("click", async function () {
-  let unisexItems = []
-  restroomUL.innerHTML = " "
+  let unisexItems = [];
+  restroomUL.innerHTML = " ";
   if (this.checked) {
     let response = await fetch(
       `https://www.refugerestrooms.org/api/v1/restrooms/by_location?page=1&per_page=10&lat=${locationObj.lat}&lng=${locationObj.lng}`
@@ -328,23 +397,45 @@ unisex.addEventListener("click", async function () {
     });
     console.log(unisexItems);
   }
-   // pull information from the API and place on display -Dom
-   let work = unisexItems.map((restroom) => {
+  // pull information from the API and place on display -Dom
+  let work = unisexItems.map((restroom) => {
     return `
-    <div class="separate">
-    <div id="store2">
-    <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(2)} mi.</i>
-    </div>
-        <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
-        <li>${restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `}</li><br>
-        <li>${restroom.accessible == true ? `Wheelchair Accessible: Yes` : ` `}</li>
-        <li>${restroom.changing_table == true ? `Changing Table: Yes` : ` `}</li>
-        <li>${restroom.unisex == true ? `Unisex: Yes` : ` `}</li>
-        <li style = "color: green;">${restroom.upvote > 0 ? `Upvotes: ${restroom.upvote}` : ` `}</li>
-        <li style = "color: red;">${restroom.downvote > 0 ? `Downvotes: ${restroom.downvote}` : ` `}</li>
-    </div>
-    `
-    
-})
-restroomUL.innerHTML = work.join(" ")
+        <div class="separate">
+        <div id="store2">
+        <b id="store">${restroom.name} </b><i> ${restroom.distance.toFixed(
+      2
+    )} mi.</i>
+        </div>
+            <li>${restroom.street} ${restroom.city}, ${restroom.state}</li><br>
+            <li>${
+              restroom.comment != null ? `<i> ${restroom.comment}</i>` : ` `
+            }</li><br>
+            <li>Wheelchair Accessible: ${
+              restroom.accessible == true ? `Yes` : `No`
+            }</li>
+            <li>Changing Table: ${
+              restroom.changing_table == true ? `Yes` : `No`
+            }</li>
+            <li>Unisex: ${restroom.unisex == true ? `Yes` : `No`}</li>
+            
+            <div id="votesAndDirectionButtonDiv">
+            <div id="votes">
+            <li style = "color: green;">Upvotes: ${restroom.upvote}
+            </li>
+            <li style = "color: red;">Downvotes: ${restroom.downvote}
+            </li> 
+            </div>
+
+            <div id="directionsButton">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${
+              restroom.latitude
+            },${
+      restroom.longitude
+    }" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="48px" height="48px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v2c0 .55-.45 1-1 1s-1-.45-1-1v-3c0-.55.45-1 1-1h5V7.5l3.15 3.15c.2.2.2.51 0 .71L14 14.5z"/></svg></a>
+        </div>
+        </div>
+        </div>
+        `;
+  });
+  restroomUL.innerHTML = work.join(" ");
 });
