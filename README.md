@@ -1,18 +1,17 @@
 # <p align="center"><b>EZeePZ</b>
 An app developed to make finding a public restroom near you that much easier. We hope that this will allow people of all walks of life to find suitable public restrooms near them. </p>
 
-# <h2 align="center">![Visitor Count](https://profile-counter.glitch.me/{DomWat}/count.svg) Thank you for stopping by!
+# <h2 align="center">![Visitor Count](https://profile-counter.glitch.me/{DomWat}/count.svg) You're welcome for the EZPeeing!
 
 
 
 
 
 <!-- PROJECT LOGO -->
+<img width="953" alt="newnewnewlogo" src="https://user-images.githubusercontent.com/70596778/96201735-f645b400-0f22-11eb-870b-3eb48ec1770a.png">
 <br />
 <p align="center">
-  <a href="https://github.com/cristinahdz29/frontend_project.git">
-    <img src="dcICON.png">
-  </a>
+  
 
   <h3 align="center">EZeePZ Project</h3><!-- YOUR_TITLE-->
     
@@ -41,15 +40,13 @@ An app developed to make finding a public restroom near you that much easier. We
   * [Installation](#installation)
 * [Usage](#usage)
 * [Videos And Screenshots](#videos-and-screenshots)
-* [Contact](#contact)
+* [Team Members](#team-members)
 * [Acknowledgements](#acknowledgements)
 
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 We created this site and app in order to provide users with a more efficient way of finding public bathrooms near them. We tried to make this an inclusive project and thanks to the api we are able to provide users with multiple resources about the public restooms. 
 
@@ -80,19 +77,21 @@ git clone https://github.com/cristinahdz29/frontend_project.git
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<img width="1521" alt="logoPic" src="https://user-images.githubusercontent.com/70596778/96202594-402f9980-0f25-11eb-95f4-1461235fd761.png">
+<img width="1513" alt="mapPic" src="https://user-images.githubusercontent.com/70596778/96202683-7240fb80-0f25-11eb-9010-0a14259e18e2.png">
 
-_For more examples, please refer to the [Project-Demo](https://example.com)_
+_For more examples, please refer to the [Project-Demo](https://ezpeez.surge.sh)_
 
 ## Videos and Screenshots
 
 Here are some images of our code and our product. 
 <img width="1002" alt="jsScreenShot" src="https://user-images.githubusercontent.com/70596778/96178356-e616e000-0ef4-11eb-8570-9ade140894c8.png"> 
 <img width="653" alt="htmlScreenShot" src="https://user-images.githubusercontent.com/70596778/96178408-fc24a080-0ef4-11eb-8458-9d39f2894091.png">
+<img width="947" alt="js2ScreenShot" src="https://user-images.githubusercontent.com/70596778/96201874-53416a00-0f23-11eb-8d98-4aee709a8c9b.png">
 
 
 <!-- CONTACT -->
-## Contact
+## Team Members
 
 Dominic Waters - (dominicwaters12@gmail.com) - email   (https://github.com/DomWat) - github <br>
 Cristina Hernandez - (cristinahdz29@gmail.com) - email (https://github.com/cristinahdz29) - github<br>
