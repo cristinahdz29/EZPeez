@@ -1,4 +1,4 @@
-# <p align="center"><b>EZeePZ</b>
+# <p align="center"><b>EZPeeZ</b>
 An app developed to make finding a public restroom near you that much easier. We hope that this will allow people of all walks of life to find suitable public restrooms near them. </p>
 
 # <h2 align="center">![Visitor Count](https://profile-counter.glitch.me/{DomWat}/count.svg) You're welcome for the EZPeeing!
@@ -13,10 +13,10 @@ An app developed to make finding a public restroom near you that much easier. We
 <p align="center">
   
 
-  <h3 align="center">EZeePZ Project</h3><!-- YOUR_TITLE-->
+  <h3 align="center">EZPeeZ Project</h3><!-- YOUR_TITLE-->
     
   <p align="center"><!-- YOUR_SHORT_DESCRIPTION -->
-**DigitalCrafts Houston and Atlanta Full-Stack Developers** This is a project designed by four members of the DigitalCraft immersive fullstack program. This app is a front-end developed project that uses information gathered from an api and displayed to the users to help them find public bathrooms near them. As well as to provide other information about the location and appearance of the bathrooms and their accessibility. 
+**DigitalCrafts Houston and Atlanta Full-Stack Developers** This is a project designed by four members of the DigitalCrafts Full Stack Immersive Program. This app is a front-end developed project that uses information gathered from an API and displays it to the users to help find public bathrooms near them. It additionally provides information about the location and appearance of the bathrooms and their accessibility. 
     <br />
     <a href="https://github.com/cristinahdz29/frontend_project.git"><strong>Explore the docs »</strong></a>
     <br />
@@ -48,23 +48,23 @@ An app developed to make finding a public restroom near you that much easier. We
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-We created this site and app in order to provide users with a more efficient way of finding public bathrooms near them. We tried to make this an inclusive project and thanks to the api we are able to provide users with multiple resources about the public restooms. 
+We created this site and app in order to provide users with a more efficient way of finding public bathrooms near them. We tried to make this an inclusive project, and thanks to the API, we are able to provide users with multiple resources about the restooms. 
 
-Why an app such as this can be helpfull:
+Why an app such as this can be helpful:
 * In some areas it can be difficult to know where the closest restrooms are, especially if you're a tourist or are not used to the area.
 * The information provided can be helpful in finding out if the closest restrooms are accessible to the disabled, have changing stations, or are unisex bathrooms.
-* This will be especially helful for travellers and will allow people from all walks of life to find accessible bathrooms.
+* This will be especially helpful for travellers and will allow people from all walks of life to find accessible bathrooms.
 
 
 ### Built With
 * JavaScript
-* Html5
+* HTML5
 * CSS3
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-You can copy the link from our github code or follow any of the links in this document to see the live site. 
+You can copy the link from our GitHub code, or follow any of the links in this document to see the live site. 
 
 ### Installation
 
