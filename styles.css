@@ -238,6 +238,15 @@ b {
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
   @keyframes animate {
     0% {
+      transform: translateY(0%);
+      opacity: 0;
+    }
+    99% {
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(-1200%);
+      opacity: 0;
     }
   }
   #container {
