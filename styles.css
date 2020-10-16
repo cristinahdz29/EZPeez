@@ -235,7 +235,7 @@ b {
 
 #votesAndDirectionButtonDiv {
   display: flex;
-  
+  justify-content: space-between;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
