@@ -28,12 +28,12 @@ section article {
   /* adds bubble shadow */
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
   /* animate is the nme of the animation, where I define below, makes the animation last for 4 seconds, perform the animation in a linear way (no acceleration or slowing down) and to repeat the aniation infinately */
-  animation: animate 4s linear infinite;
+  animation: animate 4s ease-out infinite;
 }
 
 /* Puts "shine" on bubbles */
 section article::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -45,17 +45,14 @@ section article::before {
 
 /* moves the bubble in the y-direction at different intervals (0%, 99%, 100%) within the animation */
 @keyframes animate {
-  0%
-  {
+  0% {
     transform: translateY(0%);
     opacity: 1;
   }
-  99% 
-  {
+  99% {
     opacity: 1;
   }
-  100%
-  {
+  100% {
     transform: translateY(-1200%);
     opacity: 0;
   }
@@ -233,7 +230,16 @@ b {
   font-weight: bolder;
 }
 
+#votesAndDirectionButtonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 600px) {
+  @keyframes animate {
+    0% {
+    }
+  }
   #container {
     display: flex;
     flex-direction: column;
@@ -273,7 +279,6 @@ b {
     width: 97%;
     height: 200px;
     z-index: 2;
-
   }
 
   img {
@@ -301,7 +306,6 @@ b {
   #restroomDiv {
     font-size: 15px;
     z-index: 2;
-
   }
 }
 
@@ -316,7 +320,6 @@ b {
   #restroomDiv {
     font-size: 15px;
     z-index: 2;
-
   }
 }
 
